@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="root">
+        <div id="capture">
+            <input type="text" placeholder="hello">
+            <button @click="toCanvas">click</button>
+        </div>
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.0/vue.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#root',
+            data() {
+                return {
+                    msg: 'hello'
+                }
+            },
+            methods: {
+                toCanvas() {
+                    const captureDom = document.querySelector('#capture')
+                    html2canvas(captureDom, {
+                        imageTimeout: 1000
+                    }).then(canvas => {
+                        document.body.appendChild(canvas)
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
