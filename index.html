@@ -13,7 +13,7 @@
 <body>
     <div id="root">
         <div id="capture">
-            <input type="text" placeholder="hello">
+            <input type="text" :placeholder="msg">
             <button @click="toCanvas">click</button>
         </div>
     </div>
@@ -24,7 +24,7 @@
             el: '#root',
             data() {
                 return {
-                    msg: 'hello 111',
+                    msg: 'release',
                     todos: [],
                     lists: [],
                 }
